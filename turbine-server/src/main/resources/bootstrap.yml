@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: turbine-server
+
+server:
+  address: localhost
+  port: 7272
+
+turbine:
+  aggregator:
+    clusterConfig: DATA-SERVICE
+  appConfig: DATA-SERVICE
+#  clusterNameExpression: "'default'"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    preferIpAddress: true
+    ipAddress: ${server.address}
+    instanceId: ${server.address}:${server.port}
